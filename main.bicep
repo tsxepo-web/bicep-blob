@@ -19,6 +19,11 @@ resource ManPolicy 'Microsoft.Storage/storageAccounts/managementPolicies@2023-05
           type: 'Lifecycle'
           definition: { 
             actions: {
+              version: {
+                delete: {
+                  daysAfterCreationGreaterThan: 90
+                }
+              }
               baseBlob: {
                 tierToCool: { 
                   daysAfterModificationGreaterThan: 30
